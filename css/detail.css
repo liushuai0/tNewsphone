@@ -1,0 +1,217 @@
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+
+.h_top {
+	width: 100%;
+	height: 70px;
+	background-color: #C21B1F;
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+
+.h_nav {
+	display: flex;
+	overflow: auto;
+	flex-wrap: nowrap;
+	height: 50px;
+	align-items: center;
+	background-color: #fff;
+	margin: 0;
+}
+
+.h_nav li {}
+
+.h_nav li a {
+	white-space: nowrap;
+	height: 3.125rem;
+	line-height: 3.125rem;
+	text-decoration: none;
+	color: #333333;
+	font-weight: bold;
+	padding: 10px;
+}
+
+#c_neirong img {
+	width: 100% !important;
+	height: auto !important;
+}
+
+.abc {
+	color: #C21B1F !important;
+	border-bottom: 3px solid #C21B1F;
+}
+
+.h_logo {
+	width: 30%;
+	margin-left: 20px;
+}
+video{
+	width: 100% !important;
+	height: auto !important;
+}
+
+.h_rightc {
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: 60%;
+
+}
+
+.searchInp {
+	width: 58%;
+	height: 25px;
+	border-radius: 10px;
+	border: none;
+	position: absolute;
+	right: 40px;
+	padding-left: 10px;
+	font-size: 15px;
+}
+
+.h_rightImg {
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	right: 0;
+}
+
+.c_content {
+	padding: 10px;
+	position: relative;
+}
+
+.c_title {
+	text-align: left;
+
+	font-size: 22px;
+}
+
+/* 	@font-face{
+            font-family: 'oswald';
+            src : url('SourceHanSansCN-Light.ttf');
+        }
+		body{
+		    font-family: "oswald", "SourceHanSansSC-Light","Source-Han-Light","Source Han Sans CN","SourceHanSansCN-Light","webfontSourceHanSansSC" !important
+		} */
+p {
+	font-size: 15px;
+	color: #333333;
+	line-height: 200%;
+	letter-spacing: 0px;
+
+}
+
+.c_date {
+
+	font-size: 13px;
+	margin-top: 10px;
+	text-align: right;
+	color: #666666;
+}
+
+.xg_title {
+	color: #C21B1F;
+	font-size: 22px;
+	width: 100%;
+	border-bottom: 2px solid #F2F2F2;
+	position: relative;
+	border-top: 10px solid #F9F9F9;
+	padding-top: 10px;
+}
+
+.xgmore {
+	position: absolute;
+	right: 20px;
+	top: 13px;
+	display: flex;
+	align-items: center;
+	color: #666666;
+	font-size: 16px;
+}
+
+.xg_content {
+	padding: 0 20px;
+}
+
+.xg_list {
+	font-size: 14px;
+	margin-top: 8px;
+	position: relative;
+	width: 100%;
+}
+
+.xg_list_title {
+	display: inline-block;
+	width: 68%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.xg_list_date {
+	position: absolute;
+	right: 0px;
+}
+
+.xiangguan {
+	padding-top: 10px;
+	margin-top: 20px;
+	border-top: 10px solid #F9F9F9;
+	margin-bottom: 20px;
+}
+
+.jj_top {
+	display: flex;
+	width: 100%;
+	position: relative;
+	align-items: center;
+	border-bottom: 2px solid #F2F2F2;
+}
+
+.jujiao_title {
+	padding: 0 15px;
+	height: 33px;
+	font-size: 1.25rem;
+	font-family: Source Han Sans SC;
+	font-weight: bold;
+	color: rgba(194, 27, 31, 1);
+	line-height: 20px;
+	margin-left: 20px;
+	text-align: center;
+	border-bottom: 2px solid #C21B1F;
+}
+
+.jujiao_t_r {
+	position: absolute;
+	right: 0;
+	display: flex;
+	align-items: center;
+}
+
+.c_f_text {
+	
+	display: flex;
+	flex-direction: column;
+	font-size: 13px;
+	color: #666666;
+	margin-top: 30px;
+	
+}
+
+.footer {
+	width: 100%;
+	height: 120px;
+	background-color: #C21B1F;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: #FFC6C6;
+	font-size: 12px;
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>网站地图</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+		
+	</head>
+	<script type="text/javascript">
+		$(function(){
+			show()
+		})
+		function show(){
+			$.ajax({
+				type: "post", //请求方式
+				url: "http://ji.agampai.cn/api/home/mobile/allnav",
+				dataType: "json",
+				data: {
+			
+				}, //请求参数
+				beforeSend: function() {
+					//请求前的处理
+				},
+				success: function(res) {
+					console.log(res);
+					let navList=res.data.navList
+					let navListOther=res.data.othernav
+					$.each(navList,function(index,value){
+						$("#navlist").append("<div class='list_item' onclick='toList("+navList[index].id+")'>"+navList[index].title+"</div>")
+					})
+					$.each(navListOther,function(index,value){
+						$("#navlistAll").append("<div class='list_item' onclick='toList("+navListOther[index].id+")'>"+navListOther[index].title+"</div>")
+						
+						
+					})
+				}
+				
+			})
+		}
+		function toList(id){
+			console.log(id);
+			if(id==1000){
+				window.location.href='index.html'
+			}else{
+				window.location.href='erji.html?id='+id
+			}
+			
+		}
+		function fanhui(){
+			location.href = document.referrer;
+		}
+	</script>
+	<style type="text/css">
+		body{
+			background-color: #F1F1f1;
+		}
+		.Container{
+			padding: 10px;
+		}
+		.title{
+			margin-top: 10px;
+			font-size: 18px;
+			/* border-bottom: 6px solid #F9F9F9; */
+			padding-bottom: 10px;
+			
+		}
+		.list{
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			color:  #666666;
+			
+			margin-top: 20px;
+		}
+		.list_item{
+			padding: 2px 15px;
+			/* border: 1px solid #666666; */
+			border-radius: 3px;
+			margin-right: 5px;
+			margin-bottom: 10px;
+			background-color: #FFFFFF
+		}
+	</style>
+	<body>
+		<div class="Container">
+			
+	
+		<div class="title">
+			网站地图
+			<img src="img/cuo.png" onclick="fanhui()" style="position: absolute;right: 20px;width: 20px;height: 20px;" >
+		</div>
+		<div class="list" id="navlist">
+			
+		</div>
+		<div class="title">
+			
+			
+		</div>
+		<div class="list" id="navlistAll">
+			
+			
+		</div>
+			</div>
+	</body>
+</html>
