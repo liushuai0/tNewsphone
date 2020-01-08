@@ -10,7 +10,7 @@
 $(function() {
 	$.ajax({
 		type: "post", //请求方式
-		url: "http://ji.agampai.cn/api/home/mobile/nav",
+		url: "http://admin.jrjl.net/api/home/mobile/nav",
 		dataType: "json",
 		data: {
 
@@ -47,7 +47,7 @@ $(function() {
 function show() {
 	$.ajax({
 		type: "post", //请求方式
-		url: "http://ji.agampai.cn/api/home/mobile/articlelist",
+		url: "http://admin.jrjl.net/api/home/mobile/articlelist",
 		dataType: "json",
 		data: {
 			cate_id:$.getUrlParam('id'),
@@ -62,7 +62,7 @@ function show() {
 					if(dataList[index].thumbnail&&dataList[index].thumbnail!=null){
 						$("#cardLists").append("<div class='home_card'><img src='"+dataList[index].thumbnail+"' style='width: 6.6875rem;height: 4.375rem;' ><div class='card_right'><div class='card_title' onclick='toDetail("+dataList[index].id+")'>"+dataList[index].title+"</div><div class='card_date'>"+dataList[index].create_time+"</div></div></div>")
 					}else{
-						$("#cardLists").append("<div class='home_card'><div class='card_right'  style='width:94%;height:40px'><div class='card_title' onclick='toDetail("+dataList[index].id+")'>"+dataList[index].title+"</div><div class='card_date'>"+dataList[index].create_time+"</div></div></div>")
+						$("#cardLists").append("<div class='home_card1'><div class='card_right1'  style='width:94%;display:flex;	flex-direction: column;'><div class='card_title' onclick='toDetail("+dataList[index].id+")'>"+dataList[index].title+"</div><div class='card_date1'>"+dataList[index].create_time+"</div></div></div>")
 					}
 				})
 			}else{

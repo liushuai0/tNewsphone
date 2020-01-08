@@ -1,25 +1,36 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>asdfasd</title>
-		<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		
-		<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
-	</head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 	<body>
-		<div class="swiper-container">
-		  <div class="swiper-wrapper">
-		    <div class="swiper-slide">slider1</div>
-		    <div class="swiper-slide">slider2</div>
-		    <div class="swiper-slide">slider3</div>
-		  </div>
-		</div>
-		<script> 
-		var mySwiper = new Swiper('.swiper-container', {
-			autoplay: 5000,//可选选项，自动滑动
-		})
-		</script>
+		<button id="imagePreview" style="text-align:center;">点击调用微信内置预览图片</button>
+		<img src="img/fangtan.png" >
+		<img src="img/list_img.png" >
 	</body>
+	<script src="js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		$(function(){
+			
+			$("img").on('click',function(){
+				WeixinJSBridge.invoke('imagePreview', {
+					current: this.src,
+					urls: [ // 所有图片的URL列表，数组格式
+						this.src
+					]
+				})
+			})
+		})
+		// document.getElementById('imagePreview').addEventListener('click', function() {
+		// 	WeixinJSBridge.invoke('imagePreview', {
+		// 		current: 'http://inews.gtimg.com/newsapp_bt/0/1693121381/641',
+		// 		urls: [ // 所有图片的URL列表，数组格式
+		// 			'https://img1.gtimg.com/10/1048/104857/10485731_980x1200_0.jpg',
+		// 			'https://img1.gtimg.com/10/1048/104857/10485726_980x1200_0.jpg',
+		// 			'https://img1.gtimg.com/10/1048/104857/10485729_980x1200_0.jpg'
+		// 		]
+		// 	}, function(res) {
+		// 		console.log(res.err_msg)
+		// 	})
+		// });
+	</script>
 </html>

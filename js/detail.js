@@ -8,12 +8,42 @@
 	}
 })(jQuery);
 $(function(){
-
+	$.ajax({
+		type: "post", //请求方式
+		url: "http://admin.jrjl.net/api/home/mobile/nav",
+		dataType: "json",
+		data: {
+	
+		}, //请求参数
+		beforeSend: function() {
+			//请求前的处理
+		},
+		success: function(res) {
+			// console.log(res);
+			var headernav = res.data.navList
+			for (var i = 0; i < headernav.length; i++) {
+				$("#daohanglan").append("<li class='nav-item' onclick='tiaozhuan(" + headernav[i].id +
+					")'><a class='nav-link daohanglanaaa' id='nav" + headernav[i].id +
+					"' data-toggle='pill' href='javascript:void(0)'>" +
+					headernav[i].title +
+					"</a></li>");
+					if(i==headernav.length-1){
+						$("#nav"+headernav[i].id+"").css({"padding-right": "50px" });
+					}
+			}
+			
+			// $("#nav1000").addClass("abc")
+		},
+		error: function() {
+			console.log("错误")
+			//请求出错处理
+		}
+	});
 	
 	
 	$.ajax({
 		type: "post", //请求方式
-		url: "http://ji.agampai.cn/api/home/mobile/detail",
+		url: "http://admin.jrjl.net/api/home/mobile/detail",
 		dataType: "json",
 		data: {
 			id:$.getUrlParam('id')
@@ -26,6 +56,7 @@ $(function(){
 			console.log(res.data.data);
 			$("#isaudio").hide()
 			$("#title").append(res.data.data.subtitle)
+			document.title = res.data.data.subtitle;
 			$("#date").append(res.data.data.create_time)
 			$("#c_neirong").append(res.data.data.content)
 			$("#bianji").append(res.data.data.editor)
@@ -51,6 +82,14 @@ $(function(){
 			
 				$("#xiangguanList").append("<div class='xg_list'><span class='xg_list_title' onclick='toDetail("+tuijianList[index].id+")'>"+tuijianList[index].title+"</span><span class='xg_list_date'>"+str1[0]+"</span></div>")
 			})
+			$("img").on('click',function(){
+				WeixinJSBridge.invoke('imagePreview', {
+					current: this.src,
+					urls: [ // 所有图片的URL列表，数组格式
+						this.src
+					]
+				})
+			})
 			
 			
 			
@@ -58,6 +97,7 @@ $(function(){
 			
 		},
 	})
+	
 	
 	$("#zanting").hide()
 	$("#bofang").on('click',function(){
@@ -84,4 +124,12 @@ $(function(){
 
 function toDetail(id){
 	window.location.href="detail.html?id="+id
+}
+function tiaozhuan(index) {
+	console.log(index);
+	if (index != 1000) {
+		window.location.href = "erji.html?id=" + index
+	}else{
+		window.location.href = "index.html"
+	}
 }

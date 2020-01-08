@@ -15,7 +15,7 @@ $(function() {
 	//导航栏内容加载
 	$.ajax({
 		type: "post", //请求方式
-		url: "http://ji.agampai.cn/api/home/mobile/nav",
+		url: "http://admin.jrjl.net/api/home/mobile/nav",
 		dataType: "json",
 		data: {
 
@@ -59,7 +59,7 @@ function show() {
 	$("#centerContent").load("shouye.html")
 	$.ajax({
 		type: "post", //请求方式
-		url: "http://ji.agampai.cn/api/home/mobile/index",
+		url: "http://admin.jrjl.net/api/home/mobile/index",
 		dataType: "json",
 		data: {
 
@@ -287,7 +287,7 @@ function show() {
 					let chakanList=[]
 					$.ajax({
 						type: "post", //请求方式
-						url: "http://ji.agampai.cn/api/home/mobile/addmore",
+						url: "http://admin.jrjl.net/api/home/mobile/addmore",
 						dataType: "json",
 						data: {
 							cate_id:res.data.yaowenlist.cate_id
@@ -328,7 +328,7 @@ function show() {
 					let chakanList=[]
 					$.ajax({
 						type: "post", //请求方式
-						url: "http://ji.agampai.cn/api/home/mobile/addmore",
+						url: "http://admin.jrjl.net/api/home/mobile/addmore",
 						dataType: "json",
 						data: {
 							cate_id:res.data.jujiaolist.cate_id
@@ -373,7 +373,7 @@ function show() {
 					let chakanList=[]
 					$.ajax({
 						type: "post", //请求方式
-						url: "http://ji.agampai.cn/api/home/mobile/addmore",
+						url: "http://admin.jrjl.net/api/home/mobile/addmore",
 						dataType: "json",
 						data: {
 							cate_id:res.data.fangtanlist.cate_id
@@ -412,7 +412,7 @@ function show() {
 					let shenduList=[]
 					$.ajax({
 						type: "post", //请求方式
-						url: "http://ji.agampai.cn/api/home/mobile/addmore",
+						url: "http://admin.jrjl.net/api/home/mobile/addmore",
 						dataType: "json",
 						data: {
 							cate_id:res.data.shendulist.cate_id
@@ -459,7 +459,7 @@ function show() {
 					let yanbianList=[]
 					$.ajax({
 						type: "post", //请求方式
-						url: "http://ji.agampai.cn/api/home/mobile/addmore",
+						url: "http://admin.jrjl.net/api/home/mobile/addmore",
 						dataType: "json",
 						data: {
 							cate_id:res.data.yanbianlist.cate_id
@@ -507,7 +507,7 @@ function show() {
 					let yanbianList=[]
 					$.ajax({
 						type: "post", //请求方式
-						url: "http://ji.agampai.cn/api/home/mobile/addmore",
+						url: "http://admin.jrjl.net/api/home/mobile/addmore",
 						dataType: "json",
 						data: {
 							cate_id:res.data.bianchenglist.cate_id
@@ -556,7 +556,7 @@ function show() {
 					let renshiList=[]
 					$.ajax({
 						type: "post", //请求方式
-						url: "http://ji.agampai.cn/api/home/mobile/addmore",
+						url: "http://admin.jrjl.net/api/home/mobile/addmore",
 						dataType: "json",
 						data: {
 							cate_id:res.data.renshilist.cate_id
@@ -601,7 +601,7 @@ function show() {
 					let kaimoList=[]
 					$.ajax({
 						type: "post", //请求方式
-						url: "http://ji.agampai.cn/api/home/mobile/addmore",
+						url: "http://admin.jrjl.net/api/home/mobile/addmore",
 						dataType: "json",
 						data: {
 							cate_id:res.data.kaimolist.cate_id
@@ -633,7 +633,36 @@ function show() {
 			
 		},
 	})
+	$.ajax({
+		type: "post", //请求方式
+		url: "http://admin.jrjl.net/api/home/mobile/bannerlist",
+		dataType: "json",
+		data: {
+	
+		}, //请求参数
+		beforeSend: function() {
+			//请求前的处理
+		},
+		success: function(res) {
+			console.log(res);
+			console.log(res.data.list);
+			let ggList=res.data.list
+			$.each(ggList,function(index){
+				$("#ggimg"+(index+1)+"").attr('src',ggList[index].thumbnail)
+				if(ggList[index].url){
+					$("#ggimg"+(index+1)+"").attr('onclick',"ggHref('"+ggList[index].url+"')")
+				}
+			})
+		},
+		error: function() {
+			console.log("错误")
+			//请求出错处理
+		}
+	});
 
+}
+function ggHref(url){
+	window.open(url)
 }
 
 //查看更多下拉

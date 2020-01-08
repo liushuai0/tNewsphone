@@ -180,10 +180,10 @@
 }
 
 .swiperBottom {
-	margin: 10px 0;
-	padding-bottom: 20px;
+	margin: 5px 0;
+	padding-bottom: 15px;
 	border-bottom: 8px solid #F9F9F9;
-	margin-bottom: 20px;
+	/* margin-bottom: 10px; */
 }
 
 .kuaixun {
@@ -201,7 +201,7 @@
 .wenzigundong {}
 
 .cardLists {
-	margin-top: 10px;
+	
 }
 
 .home_card {
@@ -213,6 +213,14 @@
 	width: 94%;
 	border-bottom: 2px solid #F9F9F9;
 }
+.home_card1 {
+	padding: 5px 0;
+	padding-left: 20px;
+	display: flex;
+	flex-wrap: nowrap;
+	width: 94%;
+	/* border-bottom: 2px solid #F9F9F9; */
+}
 
 .home_card img {
 	margin-right: 10px;
@@ -222,6 +230,11 @@
 .card_right {
 	width: 63%;
 	height: 4.375rem;
+	position: relative;
+}
+.card_right1 {
+	width: 63%;
+	
 	position: relative;
 }
 
@@ -243,6 +256,13 @@
 	left: 0px;
 	bottom: 0;
 
+}
+.card_date1 {
+	color: #B3B3B3;
+	font-size: 13px;
+	margin-top: 5px;
+	padding-bottom: 10px;
+	border-bottom: 2px solid #F9F9F9;
 }
 
 .yaowen {
@@ -380,7 +400,7 @@
 
 .fangtan_jianbian {
 	width: 100%;
-	height: 11.875rem;
+	height: 225px;
 	position: relative;
 	
 	margin-top: 20px;
